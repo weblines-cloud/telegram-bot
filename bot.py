@@ -2,7 +2,7 @@
 Weblines starter: a minimal Telegram bot.
 
 - Long polling (no webhook, no public URL needed).
-- /start greets, any other text is echoed back.
+- /start greets (in Persian), any other text is echoed back.
 - GET /health on $PORT (default 3000) so the platform sees it as healthy.
 
 Only the standard library: nothing to install, small image, fast build.
@@ -37,6 +37,15 @@ def call(method, payload=None, timeout=40):
     return body["result"]
 
 
+START_TEXT = (
+    "سلام {name}! 👋\n"
+    "این یک ربات نمونه است که روی وب‌لاینز اجرا می‌شود.\n"
+    "هر پیامی بفرستی، همان را برایت برمی‌گردانم.\n\n"
+    "برای ساختن ربات خودت، این ریپو را fork کن و تابع handle را در bot.py تغییر بده:\n"
+    "https://github.com/weblines-cloud/telegram-bot"
+)
+
+
 def reply(chat_id, text):
     call("sendMessage", {"chat_id": chat_id, "text": text})
 
@@ -48,8 +57,8 @@ def handle(update):
     if not text or "id" not in chat:
         return
     if text.startswith("/start"):
-        name = (message.get("from") or {}).get("first_name") or "there"
-        reply(chat["id"], f"Hi {name}! I'm running on Weblines. Send me anything and I'll echo it.")
+        name = (message.get("from") or {}).get("first_name") or "دوست من"
+        reply(chat["id"], START_TEXT.format(name=name))
     else:
         reply(chat["id"], text)
 

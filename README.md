@@ -15,4 +15,8 @@ Run locally:
 docker build -t tg-bot . && docker run -e TELEGRAM_BOT_TOKEN=... -p 3000:3000 tg-bot
 ```
 
-Edit `handle()` in `bot.py` to make it your own.
+Edit `handle()` in `bot.py` (and `START_TEXT`) to make it your own.
+
+---
+
+**فارسی:** یک ربات تلگرام نمونه: `/start` خوش‌آمد می‌گوید و هر متن دیگری را برمی‌گرداند. برای ربات خودت این ریپو را fork کن، تابع `handle` را در `bot.py` تغییر بده و در وب‌لاینز ریپوی خودت را وصل کن. روی نود آلمان اجرا می‌شود، چون تلگرام از ایران در دسترس نیست.
