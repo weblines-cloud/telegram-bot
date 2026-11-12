@@ -39,10 +39,10 @@ def call(method, payload=None, timeout=40):
 
 START_TEXT = (
     "سلام {name}! 👋\n"
-    "این یک ربات نمونه است که روی وب‌لاینز اجرا می‌شود.\n"
+    "این یک ربات نمونه است که روی سرور آلمانِ وب‌لاینز اجرا می‌شود.\n"
     "هر پیامی بفرستی، همان را برایت برمی‌گردانم.\n\n"
-    "برای ساختن ربات خودت، این ریپو را fork کن و تابع handle را در bot.py تغییر بده:\n"
-    "https://github.com/weblines-cloud/telegram-bot"
+    "راهنمای ربات، از عوض کردن توکن تا خاموش و روشن کردن آن:\n"
+    "https://docs.weblines.ir/apps/telegram-bot"
 )
 
 
